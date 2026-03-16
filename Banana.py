@@ -47,7 +47,8 @@ for ByteValue in PayLoad:
 AudioWaveform = numpy.concatenate(AudioSegments)
 AudioWaveform = AudioWaveform/ numpy.max(numpy.abs(AudioWaveform))
 soundfile.write(
-    "Banana.wav",
+    BananaAudio,
     AudioWaveform,SampleRate
 )
+
 print("We Good")
