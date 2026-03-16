@@ -4,8 +4,8 @@ import os,requests
 
 ScriptFolder = os.path.dirname(os.path.abspath(__file__))
 ImagePath = os.path.join(ScriptFolder, "Banana.png")
-# Not Putting JWT here because it will be difficult but if we do it will upload
-PinataJWT = "Key here"
+# Not Putting JWT here because it needs to be anonymous but if we do it will upload
+PinataJWT = ""
 
 SampleRate = 44100
 SymbolDuration = 0.05
@@ -155,7 +155,8 @@ def DownloadFromIPFS(ContentId, SavePath="Banana.wav"):
 Choice = input("Do you want to store the banana or retrieve(S or R), anything other than that to exit:")
 if Choice.lower() == "s":
     Encoder()
-    # UploadToPinata()
+    if PinataJWT != "":
+        UploadToPinata()
 elif Choice.lower() == "r":
     CID = "bafybeicdbpzmknwo2lvmmqq6wplqxabj7ae43iukftmjzz6kgjjho5lhd4"
     DownloadFromIPFS(CID,)
