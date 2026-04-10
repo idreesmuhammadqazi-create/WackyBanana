@@ -169,10 +169,12 @@ Choice = input("Do you want to store the banana or retrieve(S or R), anything ot
 if Choice.lower() == "s":
     PinataJWT = input("Enter Your pinata JWT here:")
     Encoder()
-    UploadToPinata(FileBase + ".wav")
+    UploadToPinata()
+    print("Upload successful.")
 elif Choice.lower() == "r":
-    DownloadFromIPFS(CID)
-    FileBase = "Recovered"
+    DownloadFromIPFS(CID,)
     Decoder()
+    print("Retrieval and decoding successful.")
 else:
-    pass
+    print("Exiting.")
+input("Press Enter to exit.")
